@@ -12,15 +12,21 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files '("~/icloud/personal/todos.org"))
  '(org-capture-templates
-   '(("b" "Blog Idea" entry
+   '(("t" "General todo" entry
       (file "~/icloud/personal/todos.org")
-      "* TODO [Blog] ")
+      "* TODO %^ %?
+DEADLINE: %^t")
+     ("b" "Blog Idea" entry
+      (file "~/icloud/personal/todos.org")
+      "* TODO [Blog] %^ %?
+DEADLINE: %^t")
      ("r" "Rubocop" entry
       (file "~/icloud/personal/todos.org")
       "* TODO [Rubocop] ")
      ("g" "Game" entry
       (file "~/icloud/personal/todos.org")
-      "* TODO [Game] "))))
+      "* TODO [Game] %^ %?
+DEADLINE: %^t"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
