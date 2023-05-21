@@ -16,6 +16,7 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(straight-use-package 'use-package)
 (straight-use-package 'helm)
 (straight-use-package 'helm-ag)
 (straight-use-package 'seeing-is-believing)
@@ -33,6 +34,8 @@
 (straight-use-package 'ox-hugo)
 (straight-use-package 'gnuplot)
 (straight-use-package 'gnuplot-mode)
+(straight-use-package 'org-edna)
+(straight-use-package 'fzf)
 ;; This library copies important environment variables from the
 ;; user's shell
 (straight-use-package 'exec-path-from-shell)

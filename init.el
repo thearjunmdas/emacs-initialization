@@ -25,7 +25,7 @@
 
   (defun arjun/fzf/findfiles ()
     (interactive)
-    (fzf-with-command nil #'fzf/action-find-file "~/freshworks/org"))
+    (fzf-with-command nil #'fzf/action-find-file "~/development"))
 
   (defun arjun/fzf/bookmarks ()
     (interactive)
@@ -34,7 +34,7 @@
 
   (defun arjun/fzf/globalsearch ()
     (interactive)
-    (fzf-with-command "ag -f -G .org --nobreak --noheading ." #'fzf/action-find-file-with-line "~/freshworks/org")))
+    (fzf-with-command "ag -f -G .org --nobreak --noheading ." #'fzf/action-find-file-with-line "~/development")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
