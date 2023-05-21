@@ -1,7 +1,7 @@
 ;; open agenda in current window
 (setq org-agenda-window-setup (quote current-window))
 ;; warn me of any deadlines in next 7 days
-(setq org-deadline-warning-days 7)
+(setq org-deadline-warning-days 0)
 ;; show me tasks scheduled or due in next fortnight
 (setq org-agenda-span (quote fortnight))
 ;; don't show tasks as scheduled if they are already shown as a deadline
@@ -16,7 +16,12 @@
 ;; sort tasks in order of when they are due and then by priority
 (setq org-agenda-sorting-strategy
   (quote
-   ((agenda deadline-up priority-down)
+   ((agenda priority-down deadline-up)
     (todo priority-down category-keep)
     (tags priority-down category-keep)
     (search category-keep))))
+;; this will ensure org refile shows current file as well
+(setq org-refile-use-outline-path 'file)
+
+;; Shows all the agenda files where nodes can be refiled
+(setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
