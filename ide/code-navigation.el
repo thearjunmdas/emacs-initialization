@@ -1,10 +1,23 @@
 (setq path-to-ctags "/opt/homebrew/bin/ctags") ;; should be the location of your ctags installation
 
+
+;; Set up create-tags
 (defun create-tags (dir-name)
     "Create tags file."
     (interactive "DDirectory: ")
     (shell-command
      (format "%s -f TAGS -e -R %s" path-to-ctags (directory-file-name dir-name))))
+
+;; Generate and auto-load tags
+(defun my-create-and-visit-tags ()
+  "Create tags file and then visit it."
+  (interactive)
+  (call-interactively 'create-tags)
+  (let ((tags-path (concat (file-name-as-directory (directory-file-name default-directory)) "TAGS")))
+    (visit-tags-table tags-path)))
+
+(global-set-key (kbd "C-c t") 'my-create-and-visit-tags)
+
 
 ;; To close tags buffer after navigation
 (defun close-xref-buffer-after-navigation ()
@@ -26,6 +39,4 @@
      'visible)))
 
 (add-hook 'next-error-hook 'close-xref-buffer-after-navigation)
-
-
 
