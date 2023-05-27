@@ -1,4 +1,5 @@
 (setq path-to-ctags "/opt/homebrew/bin/ctags") ;; should be the location of your ctags installation
+
 (defun create-tags (dir-name)
     "Create tags file."
     (interactive "DDirectory: ")
@@ -10,7 +11,8 @@
   "Close the *xref* buffer after navigation."
   (when-let (buf (get-buffer "*xref*"))
     (kill-buffer buf))
-  (delete-duplicate-windows))
+  (delete-duplicate-windows)
+  (delete-other-windows))
 
 (defun delete-duplicate-windows ()
   "Remove all windows displaying the current buffer, except the current window."
