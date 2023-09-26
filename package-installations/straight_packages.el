@@ -36,7 +36,12 @@
 (straight-use-package 'gnuplot-mode)
 (straight-use-package 'org-edna)
 (straight-use-package 'fzf)
+(straight-use-package 'multiple-cursors)
 ;; This library copies important environment variables from the
 ;; user's shell
 (straight-use-package 'exec-path-from-shell)
+;; Syntax for installing packages from github
+;; (straight-use-package
+;;  '(linkmarks :type git :host github :repo "dustinlacewell/linkmarks"))
+
 ;; ====================== End of initialization ======================

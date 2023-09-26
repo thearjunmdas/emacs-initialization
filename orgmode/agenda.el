@@ -22,6 +22,32 @@
     (search category-keep))))
 ;; this will ensure org refile shows current file as well
 (setq org-refile-use-outline-path 'file)
-
 ;; Shows all the agenda files where nodes can be refiled
 (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
+
+(setq org-columns-default-format "%60ITEM(Task) %10TODO %10PRIORITY %10DEADLINE %10CLOSED %10Age(Age)")
+
+(defun my/org-compute-age ()
+  "Compute the age of the current item."
+  (let* ((property (org-entry-get nil "CREATED"))
+         (created (and property
+                       (org-time-string-to-time property)))
+         (now (current-time))
+         (age (when created
+                (time-subtract now created))))
+    (if age
+        (format "%.0f days"
+                (/ (time-convert age 'integer) 60 60 24))
+      "")))
+
+(defun my/org-update-age ()
+  "Update the age of the current item."
+  (org-entry-put nil "Age" (my/org-compute-age)))
+
+(add-hook 'org-agenda-finalize-hook
+          (lambda ()
+            (org-map-entries
+             'my/org-update-age
+             nil
+             'agenda)))
+
