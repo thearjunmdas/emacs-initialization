@@ -32,3 +32,12 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
+;; ====================================================
+;; Custom macros
+;; ====================================================
+(fset 'replace-double-newline
+   (kmacro-lambda-form [?\M-x ?r ?e ?p ?l ?a ?c ?e ?- tab ?s ?t ?r ?n backspace ?i ?n ?g return return ?\M-<] 0 "%d"))
+
+(global-set-key (kbd "C-c C-r") 'replace-double-newline)

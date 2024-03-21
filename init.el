@@ -4,13 +4,15 @@
 (load-directory "~/.emacs.d/initializations")
 (load-directory "~/.emacs.d/ide")
 (load-directory "~/.emacs.d/orgmode")
+(load-directory "~/.emacs.d/plantuml")
 
 (use-package fzf
   :bind ("C-S-s" . arjun/fzf/findfiles)
   :bind ("C-S-b" . arjun/fzf/bookmarks)
+  :bind ("C-S-r" . arjun/fzf/recurring)
   :bind ("C-S-f" . arjun/fzf/globalsearch)
   ;; Don't forget to set keybinds!
-
+  
   :config
   (setq fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll "
         fzf/executable "fzf"

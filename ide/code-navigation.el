@@ -1,4 +1,4 @@
-(setq path-to-ctags "/opt/homebrew/bin/ctags") ;; should be the location of your ctags installation
+(setq path-to-ctags "/usr/local/bin/ctags") ;; should be the location of your ctags installation
 
 
 ;; Set up create-tags
@@ -39,4 +39,3 @@
      'visible)))
 
 (add-hook 'next-error-hook 'close-xref-buffer-after-navigation)
-
