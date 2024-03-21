@@ -4,7 +4,6 @@
 (load-directory "~/.emacs.d/initializations")
 (load-directory "~/.emacs.d/ide")
 (load-directory "~/.emacs.d/orgmode")
-(load-directory "~/.emacs.d/plantuml")
 
 (use-package fzf
   :bind ("C-S-s" . arjun/fzf/findfiles)
