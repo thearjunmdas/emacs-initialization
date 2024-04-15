@@ -15,3 +15,9 @@
 ;; Ox-hugo init
 (with-eval-after-load 'ox
   (require 'ox-hugo))
+
+;; Enable auto-save-mode
+(auto-save-mode 1)
+
+;; Set the auto-save interval (in seconds)
+(setq auto-save-interval 60)

@@ -16,6 +16,8 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+;; IF you need specific commits of a library, use default.el lockfile
+
 (straight-use-package 'use-package)
 (straight-use-package 'helm)
 (straight-use-package 'helm-ag)
@@ -40,8 +42,5 @@
 ;; This library copies important environment variables from the
 ;; user's shell
 (straight-use-package 'exec-path-from-shell)
-;; Syntax for installing packages from github
-;; (straight-use-package
-;;  '(linkmarks :type git :host github :repo "dustinlacewell/linkmarks"))
 
 ;; ====================== End of initialization ======================

@@ -25,7 +25,7 @@
 ;; Shows all the agenda files where nodes can be refiled
 (setq org-refile-targets '((org-agenda-files :maxlevel . 1)))
 
-(setq org-columns-default-format "%60ITEM(Task) %10TODO %10PRIORITY %10DEADLINE %10CLOSED %10Age(Age)")
+(setq org-columns-default-format "%60ITEM(Task) %10TODO %10PRIORITY %15CREATED %10CLOSED")
 
 (defun my/org-compute-age ()
   "Compute the age of the current item."
@@ -44,10 +44,11 @@
   "Update the age of the current item."
   (org-entry-put nil "Age" (my/org-compute-age)))
 
-(add-hook 'org-agenda-finalize-hook
-          (lambda ()
-            (org-map-entries
-             'my/org-update-age
-             nil
-             'agenda)))
+;; Commenting automatic age creation
+;; (add-hook 'org-agenda-finalize-hook
+;;           (lambda ()
+;;             (org-map-entries
+;;              'my/org-update-age
+;;              nil
+;;              'agenda)))
 

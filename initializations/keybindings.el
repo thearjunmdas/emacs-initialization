@@ -37,7 +37,6 @@
 ;; ====================================================
 ;; Custom macros
 ;; ====================================================
-(fset 'replace-double-newline
-   (kmacro-lambda-form [?\M-x ?r ?e ?p ?l ?a ?c ?e ?- tab ?s ?t ?r ?n backspace ?i ?n ?g return return ?\M-<] 0 "%d"))
-
-(global-set-key (kbd "C-c C-r") 'replace-double-newline)
+(defalias 'replace-double-enter
+  (kmacro "M-x r e p l a c e - s t r i n g <return> M-j M-j <return> M-j <return> M-<"))
+(global-set-key (kbd "C-c C-r") 'replace-double-enter)
