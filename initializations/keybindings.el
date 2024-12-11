@@ -34,9 +34,3 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 
-;; ====================================================
-;; Custom macros
-;; ====================================================
-(defalias 'replace-double-enter
-  (kmacro "M-x r e p l a c e - s t r i n g <return> M-j M-j <return> M-j <return> M-<"))
-(global-set-key (kbd "C-c C-r") 'replace-double-enter)
